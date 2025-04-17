@@ -3,7 +3,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "target": "ES6",
-    "skipLibCheck": true,
+    "skipLibCheck": true,  // This might be hiding some type issues
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -20,8 +20,19 @@
     ],
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    // Add these if you still have issues
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "types/**/*.d.ts"  // Ensure custom types are included
+  ],
   "exclude": ["node_modules"]
 }
